@@ -1,0 +1,21 @@
+<UserTopicResultSet xmlns="http://cixonline.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
+  <Count>12</Count> 
+  <Start>0</Start> 
+  <UserTopics> 
+    <UserTopic> 
+      <Flag>R</Flag> 
+      <Msgs>0</Msgs> 
+      <Name>2feedback</Name> 
+      <Status>A</Status> 
+      <UnRead>0</UnRead> 
+    </UserTopic> 
+    <UserTopic> 
+      <Flag> </Flag> 
+      <Msgs>0</Msgs> 
+      <Name>3feedback</Name> 
+      <Status>A</Status> 
+      <UnRead>0</UnRead> 
+    </UserTopic> 
+  </UserTopics> 
+</UserTopicResultSet>
+

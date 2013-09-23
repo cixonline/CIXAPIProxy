@@ -1,0 +1,6 @@
+<PostMessage xmlns="http://cixonline.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+   <Body>Test message</Body>
+   <Forum>charlietest</Forum>
+   <MsgID>0</MsgID>
+   <Topic>newtest</Topic>
+</PostMessage>

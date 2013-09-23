@@ -1,0 +1,18 @@
+<ForumResultSet xmlns="http://cixonline.com" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
+  <Count>82</Count> 
+  <Forums> 
+    <ForumRow> 
+      <Flags /> 
+      <Name>alt.energy</Name> 
+      <Priority>None</Priority> 
+      <Unread>38</Unread> 
+    </ForumRow> 
+    <ForumRow> 
+      <Flags /> 
+      <Name>astronomy</Name> 
+      <Priority>None</Priority> 
+      <Unread>42</Unread> 
+    </ForumRow> 
+  </Forums> 
+  <Start>0</Start> 
+</ForumResultSet>
