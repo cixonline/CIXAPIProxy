@@ -30,23 +30,23 @@
         // This is all the supported commands. However each state (Main, Opt, Read) have their own
         // set of commands. For now since we're being OLR driven rather than interactive, we don't
         // care. Later might want to have separate tables for each state
-        private readonly ParseCommand[] _commands = new[]
-            {
-                new ParseCommand { name = "file", token = ParseToken.FILE },
-                new ParseCommand { name = "read", token = ParseToken.READ },
-                new ParseCommand { name = "join", token = ParseToken.JOIN },
-                new ParseCommand { name = "resign", token = ParseToken.RESIGN },
-                new ParseCommand { name = "download", token = ParseToken.DOWNLOAD },
-                new ParseCommand { name = "upload", token = ParseToken.UPLOAD },
-                new ParseCommand { name = "option", token = ParseToken.OPTION },
-                new ParseCommand { name = "scput", token = ParseToken.SCPUT },
-                new ParseCommand { name = "script", token = ParseToken.SCRIPT },
-                new ParseCommand { name = "killscratch", token = ParseToken.KILLSCRATCH },
-                new ParseCommand { name = "say", token = ParseToken.SAY },
-                new ParseCommand { name = "comment", token = ParseToken.COMMENT },
-                new ParseCommand { name = "quit", token = ParseToken.QUIT },
-                new ParseCommand { name = "bye", token = ParseToken.BYE }
-            };
+        private readonly ParseCommand[] _commands =
+        {
+            new ParseCommand { name = "file", token = ParseToken.FILE },
+            new ParseCommand { name = "read", token = ParseToken.READ },
+            new ParseCommand { name = "join", token = ParseToken.JOIN },
+            new ParseCommand { name = "resign", token = ParseToken.RESIGN },
+            new ParseCommand { name = "download", token = ParseToken.DOWNLOAD },
+            new ParseCommand { name = "upload", token = ParseToken.UPLOAD },
+            new ParseCommand { name = "option", token = ParseToken.OPTION },
+            new ParseCommand { name = "scput", token = ParseToken.SCPUT },
+            new ParseCommand { name = "script", token = ParseToken.SCRIPT },
+            new ParseCommand { name = "killscratch", token = ParseToken.KILLSCRATCH },
+            new ParseCommand { name = "say", token = ParseToken.SAY },
+            new ParseCommand { name = "comment", token = ParseToken.COMMENT },
+            new ParseCommand { name = "quit", token = ParseToken.QUIT },
+            new ParseCommand { name = "bye", token = ParseToken.BYE }
+        };
 
         private readonly string[] _tokens;
         private int _tokenIndex;

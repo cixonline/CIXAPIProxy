@@ -1865,7 +1865,7 @@ namespace ZModem
 
         private static void ToHex(byte[] outbuf, int offset, int value)
         {
-            char[] hexArray = new[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+            char[] hexArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             outbuf[offset] = (byte) hexArray[value >> 4];
             outbuf[offset + 1] = (byte) hexArray[value & 0x0F];
         }

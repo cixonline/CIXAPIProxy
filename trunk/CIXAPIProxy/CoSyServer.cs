@@ -687,7 +687,7 @@ namespace CIXAPIProxy
                 UTF8Encoding encoder = new UTF8Encoding();
                 byte[] postMessageBytes = encoder.GetBytes(postMessageXml.ToString());
 
-                WebRequest wrPosturl = WebRequest.Create(CIXOAuth.PostUri(CoSyServer.CIXAPIServer + "cix.svc/forums/post.xml"));
+                WebRequest wrPosturl = WebRequest.Create(CIXOAuth.PostUri(CIXAPIServer + "cix.svc/forums/post.xml"));
                 wrPosturl.Method = "POST";
                 wrPosturl.ContentLength = encoder.GetByteCount(postMessageXml.ToString());
                 wrPosturl.ContentType = "application/xml";
@@ -846,7 +846,7 @@ namespace CIXAPIProxy
 
                             foreach (ScratchpadMessagesMsg message in topicList)
                             {
-                                string [] monthString = new[] { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
+                                string [] monthString = { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
 
                                 StringBuilder messageHeader = new StringBuilder(); 
                                 messageHeader.AppendFormat(">>>{0} {1} {2}({3})", thisTopic, message.ID, message.Author, message.Body.Length);

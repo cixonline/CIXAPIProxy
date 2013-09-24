@@ -24,7 +24,7 @@ namespace CIXAPIProxy
 
             _notifyIcon.Visible = true;
             _notifyIcon.Icon = new Icon(GetType(), "CIXTelnetD.ico");
-            _notifyIcon.Text = CIXAPIProxy.Properties.Resources.CIXAPIProxyTitle;
+            _notifyIcon.Text = Properties.Resources.CIXAPIProxyTitle;
             _notifyIcon.ContextMenu = contextMenu;
 
             CIXAPI.CIXOAuth.ConsumerKey = CIXOAuthKeys.ConsumerKey;
@@ -54,7 +54,7 @@ namespace CIXAPIProxy
         {
             string oauthToken = Properties.Settings.Default.oauthToken;
             string oauthTokenSecret = Properties.Settings.Default.oauthTokenSecret;
-            return false; // !string.IsNullOrWhiteSpace(oauthToken) && !string.IsNullOrWhiteSpace(oauthTokenSecret);
+            return !string.IsNullOrWhiteSpace(oauthToken) && !string.IsNullOrWhiteSpace(oauthTokenSecret);
         }
 
         /// <summary>

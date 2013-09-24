@@ -114,7 +114,7 @@ namespace Telnet
         /// <param name="ch">The character to write</param>
         public void WriteByte(char ch)
         {
-            byte[] charByte = new[] { (byte)ch };
+            byte[] charByte = { (byte)ch };
             _stream.Write(charByte, 0, 1);
         }
 
