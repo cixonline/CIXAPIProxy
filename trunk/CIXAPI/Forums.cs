@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace CIXAPI
 {
-    public class Forums
+    public sealed class Forums
     {
         private List<Forum> _forums;
         private bool _initialised;
@@ -56,11 +56,9 @@ namespace CIXAPI
         /// <returns>True if we succeed, false if we fail for any reason (not found, locked, etc)</returns>
         public bool Join(string forumName)
         {
-            string joinUrl = string.Format("cix.svc/forums/{0}/join.xml", forumName);
+            string joinUrl = string.Format("forums/{0}/join", forumName);
 
-            WebRequest wrGeturl = WebRequest.Create(CIXOAuth.GetUri(joinUrl));
-            wrGeturl.Method = "GET";
-
+            WebRequest wrGeturl = APIRequest.Get(joinUrl, APIRequest.APIFormat.XML);
             try
             {
                 Stream objStream = wrGeturl.GetResponse().GetResponseStream();
@@ -92,9 +90,7 @@ namespace CIXAPI
         /// </summary>
         private void Initialise()
         {
-            WebRequest wrGeturl = WebRequest.Create(CIXOAuth.GetUri("cix.svc/user/forums.xml"));
-            wrGeturl.Method = "GET";
-
+            WebRequest wrGeturl = APIRequest.Get("user/forums", APIRequest.APIFormat.XML);
             try
             {
                 Stream objStream = wrGeturl.GetResponse().GetResponseStream();
@@ -141,13 +137,11 @@ namespace CIXAPI
         /// </summary>
         /// <param name="forumName">The name of the forum to resign</param>
         /// <returns>True if we succeed, false if we fail for any reason</returns>
-        public bool Resign(string forumName)
+        public void Resign(string forumName)
         {
-            string joinUrl = string.Format("cix.svc/forums/{0}/resign.xml", forumName);
+            string joinUrl = string.Format("forums/{0}/resign", forumName);
 
-            WebRequest wrGeturl = WebRequest.Create(CIXOAuth.GetUri(joinUrl));
-            wrGeturl.Method = "GET";
-
+            WebRequest wrGeturl = APIRequest.Get(joinUrl, APIRequest.APIFormat.XML);
             try
             {
                 Stream objStream = wrGeturl.GetResponse().GetResponseStream();
@@ -159,7 +153,6 @@ namespace CIXAPI
                         if (result != null && result.Contains("Success"))
                         {
                             _initialised = false; // Force re-load of the server forum list next time
-                            return true;
                         }
                     }
                 }
@@ -171,7 +164,6 @@ namespace CIXAPI
                     throw new AuthenticationException("Authentication Failed", e);
                 }
             }
-            return false;
         }
     }
 }

@@ -8,7 +8,7 @@ using Telnet;
 
 namespace ZModem
 {
-    public class ZModem
+    public sealed class ZModem
     {
         private readonly TelnetStream _stream;
         private FileStream _file;

@@ -2,7 +2,7 @@
 
 namespace CIXAPI
 {
-    public class Topic
+    public sealed class Topic
     {
         private readonly UserTopicResultSetUserTopicsUserTopic _data;
         private readonly Forum _forum;

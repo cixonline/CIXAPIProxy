@@ -1,6 +1,6 @@
 ﻿namespace CIXAPIProxy
 {
-    public class Parser
+    public sealed class Parser
     {
         struct ParseCommand
         {

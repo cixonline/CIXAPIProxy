@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CIXOAuth.cs" />
+    <Compile Include="APIRequest.cs" />
     <Compile Include="Forum.cs" />
     <Compile Include="Forum.Topics.Get.cs" />
     <Compile Include="Forums.cs" />
-    <Compile Include="OAuthBase.cs" />
     <Compile Include="PostMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.cs" />

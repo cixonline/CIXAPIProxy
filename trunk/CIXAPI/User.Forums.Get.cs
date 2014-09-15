@@ -7,7 +7,7 @@
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public class ForumResultSet
+    public sealed class ForumResultSet
     {
 
         private string countField;
@@ -46,7 +46,7 @@
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    public class ForumResultSetForumsForumRow
+    public sealed class ForumResultSetForumsForumRow
     {
 
         private string flagsField;
@@ -83,27 +83,6 @@
         {
             get { return unreadField; }
             set { unreadField = value; }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17626")]
-    [System.SerializableAttribute]
-    [System.Diagnostics.DebuggerStepThroughAttribute]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public partial class NewDataSet1
-    {
-
-        private ForumResultSet[] itemsField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ForumResultSet")]
-        public ForumResultSet[] Items
-        {
-            get { return itemsField; }
-            set { itemsField = value; }
         }
     }
 }

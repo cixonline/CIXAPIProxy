@@ -1,24 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CIXAPIProxy.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="oauthToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="oauthTokenSecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="CIXAPIServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://api.cixonline.com/v1.0/</Value>
-    </Setting>
-    <Setting Name="CIXForums" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://forums.cixonline.com</Value>
-    </Setting>
-    <Setting Name="CIXBetaAPIServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://betaapi.cixonline.com/v1.0/</Value>
-    </Setting>
-    <Setting Name="CIXBetaForums" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://betaforums.cixonline.com</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

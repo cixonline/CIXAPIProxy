@@ -9,7 +9,7 @@ namespace CIXAPIProxy
     /// <summary>
     /// Interaction logic for AboutWindow.xaml
     /// </summary>
-    public partial class AboutWindow
+    public sealed partial class AboutWindow
     {
         public AboutWindow()
         {

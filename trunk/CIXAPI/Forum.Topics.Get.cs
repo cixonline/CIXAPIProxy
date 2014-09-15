@@ -7,7 +7,7 @@
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public partial class TopicResultSet
+    public sealed class TopicResultSet
     {
 
         private string countField;
@@ -46,7 +46,7 @@
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    public partial class TopicResultSetTopicsTopic
+    public sealed class TopicResultSetTopicsTopic
     {
 
         private string descField;
@@ -83,27 +83,6 @@
         {
             get { return nameField; }
             set { nameField = value; }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17626")]
-    [System.SerializableAttribute]
-    [System.Diagnostics.DebuggerStepThroughAttribute]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public partial class NewDataSet
-    {
-
-        private TopicResultSet[] itemsField2;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("TopicResultSet")]
-        public TopicResultSet[] Items
-        {
-            get { return itemsField2; }
-            set { itemsField2 = value; }
         }
     }
 }

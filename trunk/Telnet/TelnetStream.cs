@@ -267,7 +267,7 @@ namespace Telnet
         /// Write a character array to the client.
         /// </summary>
         /// <param name="charsToWrite">The character array to write</param>
-        private void WriteChars(char[] charsToWrite)
+        private void WriteChars(IEnumerable<char> charsToWrite)
         {
             foreach (char ch in charsToWrite)
             {

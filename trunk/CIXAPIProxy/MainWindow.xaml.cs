@@ -27,34 +27,8 @@ namespace CIXAPIProxy
             _notifyIcon.Text = Properties.Resources.CIXAPIProxyTitle;
             _notifyIcon.ContextMenu = contextMenu;
 
-            CIXAPI.CIXOAuth.ConsumerKey = CIXOAuthKeys.ConsumerKey;
-            CIXAPI.CIXOAuth.ConsumerSecret = CIXOAuthKeys.ConsumerSecret;
-
-            CoSyServer.CIXAPIServer = Properties.Settings.Default.CIXAPIServer;
-            CoSyServer.CIXForumsServer = Properties.Settings.Default.CIXForums;
-
-            if (!IsAuthenticated())
-            {
-                CixLogin loginWindow = new CixLogin();
-                loginWindow.ShowDialog();
-            }
-
-            CIXAPI.CIXOAuth.OAuthToken = Properties.Settings.Default.oauthToken;
-            CIXAPI.CIXOAuth.OAuthTokenSecret = Properties.Settings.Default.oauthTokenSecret;
-
             _server = new CoSyServer(23);
             _server.Start();
-        }
-
-        /// <summary>
-        /// Has this app been authenticated? Do we have non-empty cached tokens.
-        /// </summary>
-        /// <returns>True if we're authenticated, false otherwise</returns>
-        private static bool IsAuthenticated()
-        {
-            string oauthToken = Properties.Settings.Default.oauthToken;
-            string oauthTokenSecret = Properties.Settings.Default.oauthTokenSecret;
-            return !string.IsNullOrWhiteSpace(oauthToken) && !string.IsNullOrWhiteSpace(oauthTokenSecret);
         }
 
         /// <summary>

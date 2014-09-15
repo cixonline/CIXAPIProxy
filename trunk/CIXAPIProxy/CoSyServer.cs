@@ -14,7 +14,7 @@ using Telnet;
 
 namespace CIXAPIProxy
 {
-    internal class CoSyServer
+    internal sealed class CoSyServer
     {
         private TcpListener _tcpListener;
         private Thread _listenThread;
@@ -45,8 +45,6 @@ namespace CIXAPIProxy
         {
             _portNumber = port;
             _isTerse = false;
-
-            BetaSettings();
         }
 
         /// <summary>
@@ -128,6 +126,9 @@ namespace CIXAPIProxy
 
                 Console.WriteLine("Logged in as '{0}' with password '{1}'", userName, password);
 
+                APIRequest.Username = userName;
+                APIRequest.Password = password;
+
                 _forums = new Forums();
 
                 buffer.WriteLine(string.Format("You are a member of {0} conference(s).", _forums.Count));
@@ -154,26 +155,10 @@ namespace CIXAPIProxy
             }
             catch (AuthenticationException)
             {
-                // Authentication failed. Likely the app has been revoked. Clear
-                // the tokens and force re-authentication.
-                Properties.Settings.Default.oauthToken = "";
-                Properties.Settings.Default.oauthTokenSecret = "";
-
                 Properties.Settings.Default.Save();
             }
 
             tcpClient.Close();
-        }
-
-        public static string CIXAPIServer { get; set; }
-
-        public static string CIXForumsServer { get; set; }
-
-        [System.Diagnostics.Conditional("BETA")]
-        private void BetaSettings()
-        {
-            CIXAPIServer = Properties.Settings.Default.CIXBetaAPIServer;
-            CIXForumsServer = Properties.Settings.Default.CIXBetaForums;
         }
 
         /// <summary>
@@ -672,29 +657,7 @@ namespace CIXAPIProxy
                 }
                 message.Body = bodyMessage.ToString();
 
-                StringBuilder postMessageXml = new StringBuilder();
-
-                using (XmlWriter writer = XmlWriter.Create(postMessageXml))
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof (PostMessage));
-                    serializer.Serialize(writer, message);
-                }
-
-                // Remove the header
-                postMessageXml.Replace("<?xml version=\"1.0\" encoding=\"utf-16\"?>", "");
-
-                // Messages are posted as 7-bit ASCII.
-                UTF8Encoding encoder = new UTF8Encoding();
-                byte[] postMessageBytes = encoder.GetBytes(postMessageXml.ToString());
-
-                WebRequest wrPosturl = WebRequest.Create(CIXOAuth.PostUri(CIXAPIServer + "cix.svc/forums/post.xml"));
-                wrPosturl.Method = "POST";
-                wrPosturl.ContentLength = encoder.GetByteCount(postMessageXml.ToString());
-                wrPosturl.ContentType = "application/xml";
-
-                Stream dataStream = wrPosturl.GetRequestStream();
-                dataStream.Write(postMessageBytes, 0, postMessageBytes.Length);
-                dataStream.Close();
+                WebRequest wrPosturl = APIRequest.Post("forums/post", APIRequest.APIFormat.XML, message);
 
                 buffer.WriteString("Adding..");
 
@@ -809,9 +772,7 @@ namespace CIXAPIProxy
         /// <param name="buffer">The I/O buffer</param>
         private static void ReadScratchpad(LineBuffer buffer)
         {
-            WebRequest wrGeturl = WebRequest.Create(CIXOAuth.GetUri("cix.svc/user/cixtelnetd/65535/0/scratchpad.xml"));
-            wrGeturl.Method = "GET";
-
+            WebRequest wrGeturl = APIRequest.Get("user/cixtelnetd/65535/0/scratchpad", APIRequest.APIFormat.XML);
             try
             {
                 Stream objStream = wrGeturl.GetResponse().GetResponseStream();

@@ -7,7 +7,7 @@
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public partial class Scratchpad
+    public sealed class Scratchpad
     {
 
         private string countField;
@@ -36,7 +36,7 @@
     [System.Diagnostics.DebuggerStepThroughAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    public partial class ScratchpadMessagesMsg
+    public sealed class ScratchpadMessagesMsg
     {
 
         private string authorField;
@@ -127,27 +127,6 @@
         {
             get { return topicField; }
             set { topicField = value; }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17626")]
-    [System.SerializableAttribute]
-    [System.Diagnostics.DebuggerStepThroughAttribute]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://cixonline.com")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://cixonline.com", IsNullable = false)]
-    public partial class NewDataSet2
-    {
-
-        private Scratchpad[] itemsField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Scratchpad")]
-        public Scratchpad[] Items
-        {
-            get { return itemsField; }
-            set { itemsField = value; }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CIXAPI
 {
-    public class Topics
+    public sealed class Topics
     {
         private readonly List<Topic> _topics = new List<Topic>();
 

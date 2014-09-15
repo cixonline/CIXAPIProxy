@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace CIXAPI
 {
-    public class Forum
+    public sealed class Forum
     {
         private readonly ForumResultSetForumsForumRow _data;
         private Topics _topics;
@@ -46,9 +46,8 @@ namespace CIXAPI
         /// </summary>
         private void Initialise()
         {
-            string url = string.Format("cix.svc/user/{0}/topics.xml", _data.Name);
-            WebRequest wrGeturl = WebRequest.Create(CIXOAuth.GetUri(url));
-            wrGeturl.Method = "GET";
+            string url = string.Format("user/{0}/topics.xml", _data.Name);
+            WebRequest wrGeturl = APIRequest.Get(url, APIRequest.APIFormat.XML);
 
             try
             {
