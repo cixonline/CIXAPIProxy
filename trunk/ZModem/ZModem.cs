@@ -126,7 +126,7 @@ namespace ZModem
         {
             _hasAbort = false;
 
-            _expandLFtoCRLF = _stream.IsBinary;
+            _expandLFtoCRLF = !_stream.IsBinary;
 
             return_status = ZModemConstants.XFER_RETURN_SUCCESS;
             _currentBlockSize = -1;
@@ -161,7 +161,7 @@ namespace ZModem
 
             _hasAbort = false;
 
-            _expandLFtoCRLF = _stream.IsBinary;
+            _expandLFtoCRLF = !_stream.IsBinary;
 
             rxtimeout = 100;
             tryzhdrtype = ZModemConstants.ZRINIT;
@@ -778,7 +778,7 @@ namespace ZModem
                 ToHex(secbuf, index, header_data[c]);
                 index += 2;
             }
-            if (_expandLFtoCRLF)
+            if (!_expandLFtoCRLF)
             {
                 ToHex(secbuf, index, (crc >> 8));
                 ToHex(secbuf, index + 2, (crc & 0xFF));

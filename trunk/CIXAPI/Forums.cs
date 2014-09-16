@@ -133,13 +133,14 @@ namespace CIXAPI
         }
 
         /// <summary>
-        /// Resign the specified forum.
+        /// Resign the specified forum or topic.
         /// </summary>
         /// <param name="forumName">The name of the forum to resign</param>
+        /// <param name="topicName">The name of the topic to resign</param>
         /// <returns>True if we succeed, false if we fail for any reason</returns>
-        public void Resign(string forumName)
+        public void Resign(string forumName, string topicName)
         {
-            string joinUrl = string.Format("forums/{0}/resign", forumName);
+            string joinUrl = (string.IsNullOrEmpty(topicName)) ? string.Format("forums/{0}/resign", forumName) : string.Format("forums/{0}/{1}/resigntopic", forumName, topicName);
 
             WebRequest wrGeturl = APIRequest.Get(joinUrl, APIRequest.APIFormat.XML);
             try

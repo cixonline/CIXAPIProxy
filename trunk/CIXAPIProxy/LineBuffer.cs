@@ -4,7 +4,7 @@ using Telnet;
 
 namespace CIXAPIProxy
 {
-    sealed class LineBuffer
+    public sealed class LineBuffer
     {
         private readonly TelnetStream _stream;
         private string[] _input;

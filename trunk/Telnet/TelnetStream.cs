@@ -40,6 +40,10 @@ namespace Telnet
         /// </summary>
         public bool Echo { get; set; }
 
+        /// <summary>
+        /// Specifies whether the data received from the client is
+        /// binary (no LF -> CR/LF expansion allowed).
+        /// </summary>
         public bool IsBinary { get; private set; }
 
         /// <summary>
@@ -141,11 +145,18 @@ namespace Telnet
             throw new IndexOutOfRangeException();
         }
 
+        /// <summary>
+        /// Returns whether there's any data received but waiting to be read.
+        /// </summary>
         public bool HasBytesToRead
         {
             get { return _stream.DataAvailable || _bufferIndex < _bufferSize; }
         }
 
+        /// <summary>
+        /// Clears the entire incoming data stream by consuming incoming data
+        /// until none is available.
+        /// </summary>
         public void Clear()
         {
             while (_stream.DataAvailable)

@@ -544,17 +544,13 @@ namespace CIXAPIProxy
 
         /// <summary>
         /// Handle the RESIGN command.
-        /// 
-        /// CAUTION: The API currently doesn't support resigning topics within a forum, although
-        /// the web service apparently seems to. Until this is supported, the resign command will
-        /// resign entire forums. For safety, if a topic name is specified in the argument we
-        /// bail out and do nothing.
         /// </summary>
         /// <param name="buffer">Input buffer</param>
         /// <param name="parser">Parser</param>
         private void ResignCommand(LineBuffer buffer, Parser parser)
         {
             string forumName = parser.NextArgument();
+            string topicName = string.Empty;
             if (string.IsNullOrEmpty(forumName))
             {
                 if (_currentTopic == null)
@@ -572,7 +568,8 @@ namespace CIXAPIProxy
                 string[] joinParams = forumName.Split(new[] {'/'});
                 if (joinParams.Length == 2)
                 {
-                    return; // Bail out if a topic name was specified.
+                    forumName = joinParams[0];
+                    topicName = joinParams[1];
                 }
             }
 
@@ -583,7 +580,7 @@ namespace CIXAPIProxy
             }
 
             buffer.WriteLine(string.Format("Resigning from conference '{0}'.", forumName));
-            _forums.Resign(forumName);
+            _forums.Resign(forumName, topicName);
 
             ChangeState(CoSyState.MAIN);
         }
