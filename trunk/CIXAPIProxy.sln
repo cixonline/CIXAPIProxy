@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIXAPIProxy", "CIXAPIProxy\CIXAPIProxy.csproj", "{EBEB4BD3-F3D4-46DB-B86A-4B7B37023845}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telnet", "Telnet\Telnet.csproj", "{C4E3908B-A9BF-48F9-A67E-76C15941D63A}"
@@ -8,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZModem", "ZModem\ZModem.csproj", "{D36E7D92-FAF5-42CD-96F9-E5471D701B9E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIXAPI", "CIXAPI\CIXAPI.csproj", "{AA6E24F7-9B65-46B5-A8F1-82314B4A4390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{DD07C770-17ED-4221-ADED-268A8BE2C8E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{3506DE28-F447-42C8-92A2-3A82CB8DF300}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,8 +55,27 @@ Global
 		{AA6E24F7-9B65-46B5-A8F1-82314B4A4390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6E24F7-9B65-46B5-A8F1-82314B4A4390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6E24F7-9B65-46B5-A8F1-82314B4A4390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.BetaDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.BetaDebug|Any CPU.Build.0 = Debug|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.BetaRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.BetaRelease|Any CPU.Build.0 = Release|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD07C770-17ED-4221-ADED-268A8BE2C8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.BetaDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.BetaDebug|Any CPU.Build.0 = Debug|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.BetaRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.BetaRelease|Any CPU.Build.0 = Release|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3506DE28-F447-42C8-92A2-3A82CB8DF300}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {986CDA50-C8C6-4BCD-AF66-218653275917}
 	EndGlobalSection
 EndGlobal

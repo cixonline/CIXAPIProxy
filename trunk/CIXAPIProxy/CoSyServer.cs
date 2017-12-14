@@ -14,7 +14,7 @@ using Telnet;
 
 namespace CIXAPIProxy
 {
-    internal sealed class CoSyServer
+    public sealed class CoSyServer
     {
         private TcpListener _tcpListener;
         private Thread _listenThread;
@@ -115,7 +115,7 @@ namespace CIXAPIProxy
 
                 Version ver = Assembly.GetEntryAssembly().GetName().Version;
                 string versionString = string.Format("{0}.{1}.{2}", ver.Major, ver.Minor, ver.Build);
-                buffer.WriteLine(string.Format("{0} {1}", Properties.Resources.CIXAPIProxyTitle, versionString));
+                buffer.WriteLine(string.Format("CIX API Proxy {0}", versionString));
 
                 buffer.WriteString("Nickname? (Enter 'new' for new user) ");
                 string userName = buffer.ReadLine();
@@ -128,6 +128,8 @@ namespace CIXAPIProxy
 
                 APIRequest.Username = userName;
                 APIRequest.Password = password;
+
+                LoadScratchpad();
 
                 _forums = new Forums();
 
@@ -155,7 +157,7 @@ namespace CIXAPIProxy
             }
             catch (AuthenticationException)
             {
-                Properties.Settings.Default.Save();
+                Console.WriteLine("Client not authorised");
             }
 
             tcpClient.Close();
@@ -457,6 +459,10 @@ namespace CIXAPIProxy
             {
                 buffer.WriteString("OK to delete your scratchpad? (y/n/q)? ");
                 string yesNoQuit = buffer.ReadLine();
+                if (yesNoQuit == "n") 
+                {
+                    SaveScratchpad();
+                }
                 if (yesNoQuit == "q")
                 {
                     return false;
@@ -682,6 +688,29 @@ namespace CIXAPIProxy
                         throw new AuthenticationException("Authentication Failed", e);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Save the user's scratchpad
+        /// </summary>
+        private void SaveScratchpad() 
+        {
+            string tempPath = Path.GetTempPath();
+            string scratchFileName = Path.Combine(tempPath, APIRequest.Username + "_scratchpad.txt");
+            File.WriteAllText(scratchFileName, _scratch.ToString());
+        }
+
+        /// <summary>
+        /// Load the user's scratchpad.
+        /// </summary>
+        private void LoadScratchpad() 
+        {
+            string tempPath = Path.GetTempPath();
+            string scratchFileName = Path.Combine(tempPath, APIRequest.Username + "_scratchpad.txt");
+            if (File.Exists(scratchFileName)) 
+            {
+                _scratch.Append(File.ReadAllText(scratchFileName));
             }
         }
 

@@ -1,34 +1,35 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CIXAPI")]
-[assembly: AssemblyDescription("CIX API Library")]
+[assembly: AssemblyTitle("Service")]
+[assembly: AssemblyDescription("CIX API Proxy Service")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ICUK Ltd")]
-[assembly: AssemblyProduct("CIXAPI")]
+[assembly: AssemblyProduct("Service")]
 [assembly: AssemblyCopyright("Copyright © ICUK Ltd 2013-18")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e1f3c17f-8bcf-47c2-a4af-9bc18b9bde03")]
+[assembly: Guid("3506de28-f447-42c8-92a2-3a82cb8df300")]
 
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

@@ -51,7 +51,7 @@ namespace CIXAPI
             {
                 if (string.IsNullOrEmpty(_apiBase))
                 {
-                    _apiBase = "https://api.cixonline.com/v1.0/cix.svc/";
+                    _apiBase = "https://api.cixonline.com/v2.0/cix.svc/";
                 }
                 return _apiBase;
             }
